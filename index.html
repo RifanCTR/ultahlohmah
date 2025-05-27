@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selamat Ulang Tahun 🎂</title>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+    /* Reset dan body */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Indie Flower', cursive;;
+      background: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Container neumorphism */
+    .container {
+      background: #e0e0e0;
+      border-radius: 20px;
+      box-shadow:
+        8px 8px 15px #bebebe,
+        -8px -8px 15px #ffffff;
+      padding: 20px 25px;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+      transition: box-shadow 0.3s ease;
+    }
+    @media (max-width: 600px) {
+      .container {
+        max-width: 300px;
+        padding: 15px 20px;
+      }
+    }
+
+    #page6.container {
+     background: #e0e0e0;
+      border-radius: 20px;
+      box-shadow:
+        8px 8px 15px #bebebe,
+        -8px -8px 15px #ffffff;
+      padding: 1px 10px;
+      width: 90%;
+      max-width: 290px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    h1 {
+      font-family: 'Indie Flower', cursive;
+      font-size: 1.6em;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    /* Tombol neumorphism */
+    button {
+      font-family: 'Indie Flower', cursive;
+      background: #e0e0e0;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 28px;
+      font-size: 1em;
+      font-weight: 600;
+      color: #555;
+      cursor: pointer;
+      box-shadow:
+        5px 5px 10px #bebebe,
+        -5px -5px 10px #ffffff;
+      transition: all 0.3s ease;
+      user-select: none;
+      outline: none;
+    }
+
+    button:hover {
+      box-shadow:
+        inset 2px 2px 5px #bebebe,
+        inset -2px -2px 5px #ffffff;
+      color: #333;
+    }
+
+    button:active {
+      box-shadow:
+        inset 5px 5px 10px #bebebe,
+        inset -5px -5px 10px #ffffff;
+      color: #111;
+    }
+
+    /* Paper text area */
+    .paper {
+      font-size: 1.1em;
+      color: #444;
+      padding: 18px 12px;
+      line-height: 1.4;
+      user-select: text;
+    }
+
+     .paper1 {
+      font-size: 1.1em;
+      color: #444;
+      padding: 18px 10px;
+      line-height: 1.4;
+      user-select: text;
+    }
+
+    /* Sticker */
+    .sticker {
+      width: 100px;
+      margin-top: 30px;
+      border-radius: 15px;
+      box-shadow:
+        5px 5px 10px rgba(0,0,0,0.15),
+        -5px -5px 10px rgba(255,255,255,0.7);
+    }
+
+    /* Canvas for flowers */
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #noBtn {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" src="happy.mp3" loop></audio>
+
+  <canvas id="flowerCanvas"></canvas>
+
+  <div class="container" id="page1">
+    <h1>Hai, klik tombol ini untuk membuka 🎁</h1>
+    <button onclick="startAnimation()">Buka</button>
+  </div>
+
+  <div class="container hidden" id="page2">
+    <div id="flowerArea"></div>
+    <button onclick="goToPage3()">Tara 🎉</button>
+  </div>
+
+  <div class="container hidden" id="page3">
+    <div class="paper">
+      Selamat ulang tahun sayangku Siti Nurohmah... Semoga panjang umur, sehat selalu, dimudahkan segala urusannya, dan dilancarkan segala rezekinya. Selamat ulang tahun yang ke-16! Kamu makin dewasa aja ixixixixi , Semoga kamu nggak marah-marah terus sayang, Semoga bisa lebih sabar. Aku harap ke depannya kamu bisa jadi lebih baik.
+      <br><br>
+     <div style="display: flex; justify-content: space-between; gap: 10px; margin-top: 20px;">
+  <button onclick="goToPage2()">Sebelumnya</button>
+  <button onclick="goToPage4()">Selanjutnya</button>
+</div>
+    </div>
+  </div>
+
+  <div class="container hidden" id="page4">
+    <div class="paper">
+      btw kamu cibuk cekalii ya akhir akhir ini, pasti kamu cape yaaa, makannya di jagaaa... lucu ya kamu dulu, kenal aku di silat berawal dari ngajarin kamu silat sampe bisa sejauh ini dulu aku mikir orang kaya kamu gak ada karna dari banyak nya cewe yang aku temuin pasti ending nya sama ya ntah dia balikan sama mantan nya ngilang perlahan sampe aku mikir kayaknya gak ada cewe yang tulus
+      <br><br>
+      <div style="display: flex; justify-content: space-between; gap: 10px; margin-top: 20px;">
+  <button onclick="goToPage3()">Sebelumnya</button>
+  <button onclick="goToPage5()">Selanjutnya</button>
+</div>
+    </div>
+  </div>
+
+  <div class="container hidden" id="page5">
+    <div class="paper">
+      cukup lama aku gak deket cewe karna emang takut kejadian yang sama, saat kamu chat aku... aku mikirnya paasti ending nya sama tapi aku salah dengan sama kamu aku seneng kamu gak buat aku overthingking pokonya kamu selalu baik suka kasih pap random, aku sempet mikir ini serius cewe? karna kamu beda dari cewe cewe lainnya ixixixix
+      <br><br>
+      <div style="display: flex; justify-content: space-between; gap: 10px; margin-top: 20px;">
+  <button onclick="goToPage4()">Sebelumnya</button>
+  <button onclick="goToPage6()">Selanjutnya</button>
+</div>
+    </div>
+  </div>
+
+  <div class="container hidden" id="page6">
+  <div class="paper1">
+    <br>selamat ulang tahun sayang ku cinta ku manis ku yang paling manja cie udah 16 aja makin dewasaaa aja nich wkwkwkwk semangat sekolahnyaaaaaa Lohmah 💝<br>
+    <div style="text-align: center; margin: 10px 0 10px 0;">
+      <img src="lohmah.jpg" alt="Foto Rohmah" style="width: 100%; border-radius: 30px; box-shadow: 5px 5px 15px rgba(0,0,0,0.2);">
+      <button onclick="goToPage7()">Next</button>
+    </div>
+  </div>
+</div> 
+
+
+  <div class="container hidden" id="page7">
+    <div class="paper" style="position: relative;">
+      <br><br>
+      <p>Maafin Ipan kalo ada salah ya. Apakah Lohmah mau memaafkan Ipan?</p>
+      <button onclick="acceptApology()">Ya</button>
+      <button id="noBtn">Tidak</button>
+      <div id="stickerArea" class="hidden">
+        <img src="foto.jpg" alt="Love Sticker" class="sticker" />
+      </div>
+    </div>
+  </div>
+
+ <script>
+  const noBtn = document.getElementById('noBtn');
+
+function moveButton(btn) {
+  const parent = btn.parentElement;
+  const parentRect = parent.getBoundingClientRect();
+
+  const maxX = parent.clientWidth - btn.offsetWidth;
+  const maxY = parent.clientHeight - btn.offsetHeight;
+
+  const randomX = Math.floor(Math.random() * maxX);
+  const randomY = Math.floor(Math.random() * maxY);
+
+  btn.style.position = 'absolute';
+  btn.style.left = `${randomX}px`;
+  btn.style.top = `${randomY}px`;
+}
+
+// Deteksi hover (desktop)
+noBtn.addEventListener('mouseover', () => moveButton(noBtn));
+
+// Deteksi sentuhan (HP)
+noBtn.addEventListener('touchstart', (e) => {
+  e.preventDefault(); // agar tidak dianggap klik
+  moveButton(noBtn);
+});
+  const canvas = document.getElementById('flowerCanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  function drawFlower(x, y, r, color) {
+    for (let i = 0; i < 5; i++) {
+      const angle = (i * 72) * Math.PI / 180;
+      const petalX = x + r * Math.cos(angle);
+      const petalY = y + r * Math.sin(angle);
+      ctx.beginPath();
+      ctx.arc(petalX, petalY, r / 2, 0, 2 * Math.PI);
+      ctx.fillStyle = color;
+      ctx.fill();
+    }
+    ctx.beginPath();
+    ctx.arc(x, y, r / 2, 0, 2 * Math.PI);
+    ctx.fillStyle = 'yellow';
+    ctx.fill();
+  }
+
+  function startAnimation() {
+    document.getElementById('page1').classList.add('hidden');
+    document.getElementById('page2').classList.remove('hidden');
+    const bgMusic = document.getElementById('bgMusic');
+    bgMusic.play().catch(e => console.log("Audio gagal dimainkan:", e));
+
+    let count = 0;
+    const interval = setInterval(() => {
+      const x = Math.random() * canvas.width;
+      const y = Math.random() * canvas.height;
+      const r = 20 + Math.random() * 10;
+      const colors = ['#ff69b4', '#ff1493', '#db7093', '#ffb6c1'];
+      drawFlower(x, y, r, colors[Math.floor(Math.random() * colors.length)]);
+      count++;
+      if (count > 100) clearInterval(interval);
+    }, 100);
+  }
+
+  function goToPage2() {
+    showPage('page2');
+  }
+
+  function goToPage3() {
+    showPage('page3');
+  }
+
+  function goToPage4() {
+    showPage('page4');
+  }
+
+  function goToPage5() {
+    showPage('page5');
+  }
+
+  function goToPage6() {
+    showPage('page6');
+  }
+
+  function goToPage7() {
+    showPage('page7');
+  }
+
+  function showPage(pageId) {
+    document.querySelectorAll('.container').forEach(el => el.classList.add('hidden'));
+    document.getElementById(pageId).classList.remove('hidden');
+  }
+
+  function acceptApology() {
+    document.getElementById('stickerArea').classList.remove('hidden');
+  }
+
+  function moveButton(btn) {
+    const maxX = window.innerWidth - btn.offsetWidth;
+    const maxY = window.innerHeight - btn.offsetHeight;
+    const randX = Math.random() * maxX;
+    const randY = Math.random() * maxY;
+
+    btn.style.position = 'absolute';
+    btn.style.left = randX + 'px';
+    btn.style.top = randY + 'px';
+  }
+
+  // Fungsi jika memilih "Ya"
+  function acceptApology() {
+    const stickerArea = document.getElementById('stickerArea');
+    stickerArea.classList.remove('hidden');
+  }
+</script>
+
+</body>
+</html>
